@@ -13,7 +13,7 @@ import spring.servlet.basic.HelloData;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
-@WebServlet(name = "RequestBodyJsonServlet", urlPatterns = "request-body-json")
+@WebServlet(name = "RequestBodyJsonServlet", urlPatterns = "/request-body-json")
 public class RequestBodyJsonServlet extends HttpServlet {
 
     private ObjectMapper objectMapper = new ObjectMapper();
@@ -25,7 +25,7 @@ public class RequestBodyJsonServlet extends HttpServlet {
         System.out.println("messageBody = " + messageBody);
 
         HelloData helloData = objectMapper.readValue(messageBody, HelloData.class);
-        System.out.println("helloData.getUserName() = " + helloData.getUserName());
+        System.out.println("helloData.getUserName() = " + helloData.getUsername());
         System.out.println("helloData.getAge() = " + helloData.getAge());
 
         response.getWriter().write("ok");
